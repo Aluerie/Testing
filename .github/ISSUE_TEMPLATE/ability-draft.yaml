@@ -8,10 +8,10 @@ body:
     attributes:
       value: |
         ### ❗Before making the post.
-        1️⃣ First, you should use Search in issues to find out if the bug you want to report has been already posted before. 
+        1️⃣. First, you should use Search in issues to find out if the bug you want to report has been already posted before. 
           If this is the case - **please, do not post duplicates**. 
           Instead, just **upvote with "👍" reaction** the original issue and comment extra details if any. 
-        2️⃣ And only then, if your issue was not posted before - you can start typing your post using fields below and title above. 
+        2️⃣. And only then, if your issue was not posted before - you can start typing your post using fields below and title above. 
           Try to provide as much information as possible about the bug.
         * Thank you!
 
