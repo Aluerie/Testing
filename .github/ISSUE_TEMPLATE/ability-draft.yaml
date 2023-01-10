@@ -7,10 +7,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Before making the post.
-        First, you should use Search to find out if the issue you want to post has been already posted in this bug tracker. 
-        If this is the case - **please, do not post duplicates**. 
-        Just **upvote with "👍" reaction** the original issue and comment extra details if any. 
+        ### ❕Before making the post.
+        * First, you should use Search to find out if the issue you want to post has been already posted in this bug tracker. 
+          If this is the case - **please, do not post duplicates**. 
+          Just **upvote with "👍" reaction** the original issue and comment extra details if any. 
+        * And only then, if your issue was not posted before - you can start typing your post using below. 
+          Try to provide as much information as possible about the bug.
+        * Thank you!
 
   - type: textarea
     id: desc
