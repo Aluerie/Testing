@@ -7,11 +7,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### ❕Before making the post.
-        * First, you should use Search to find out if the issue you want to post has been already posted in this bug tracker. 
+        ### ❗Before making the post.
+        1️⃣ First, you should use Search in issues to find out if the bug you want to report has been already posted before. 
           If this is the case - **please, do not post duplicates**. 
-          Just **upvote with "👍" reaction** the original issue and comment extra details if any. 
-        * And only then, if your issue was not posted before - you can start typing your post using below. 
+          Instead, just **upvote with "👍" reaction** the original issue and comment extra details if any. 
+        2️⃣ And only then, if your issue was not posted before - you can start typing your post using fields below and title above. 
           Try to provide as much information as possible about the bug.
         * Thank you!
 
