@@ -25,7 +25,6 @@ body:
     attributes:
       multiple: false
       label: Choose bug category
-        required: true
       options:
         - Ability bug
         - Item bug
@@ -33,6 +32,8 @@ body:
         - Incorrect tooltip
         - Ability Draft
         - Other
+      validations:
+        required: true
 
   - type: input
     id: name
