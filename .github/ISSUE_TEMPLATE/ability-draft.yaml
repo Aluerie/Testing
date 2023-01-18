@@ -1,13 +1,13 @@
-name: Ability Draft
-description: A problem in the Ability Draft game mode
+name: Ability Bug
+description: An ability behaves in a way it probably shouldn't!
 
-labels: ["ability-draft"]
+labels: ["ability"]
 
 body:
   - type: markdown
     attributes:
       value: |
-        ### ❗Before making the post.
+        ### ❗Before making a post.
         * First, you should use Search in issues to find out if the bug you want to report has been already posted before. 
           If this is the case - **please, do not post duplicates**. 
           Instead, just **upvote with "👍" reaction** the original issue and comment extra details if any. 
@@ -15,11 +15,38 @@ body:
           Try to provide as much information as possible about the bug.
         * Thank you!
 
+  - type: checkboxes
+  attributes:
+    label: Did you search for your bug in existing issues?
+    description: |
+      _Please search to see if an issue already exists for the bug you encountered._
+      **Do not post duplicates**
+    options:
+    - label: Yes, I have searched the existing issues and it looks like my post is not a duplicate. 
+      required: true
+
+  - type: checkboxes
+  attributes:
+    label: Have you read the FAQ in the README page?
+    description: _Make sure you read [**README**](https://github.com/ValveSoftware/Dota2-Gameplay#readme) page._
+    options:
+    - label: Yes, I did read the FAQ
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Ability name
+      placeholder: ex. Spell steal
+    validations:
+      required: true
+    
   - type: textarea
     id: desc
     attributes:
       label: Description
-      placeholder: What is the problem?
+      description: _Please attach videos or screenshots if possible_
+      placeholder: What is the problem? Describe steps to reproduce the issue.
     validations:
       required: true
 
