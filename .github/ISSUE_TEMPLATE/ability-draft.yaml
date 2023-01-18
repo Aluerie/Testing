@@ -1,4 +1,4 @@
-name: Bug sfsdfdsf
+name: Bugzzz
 description: Report broken or incorrect behaviour.
 
 body:
@@ -22,13 +22,16 @@ body:
         required: true
   
   - type: dropdown
-    id: version
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      multiple: false
+      label: Choose bug category
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - Ability bug
+        - Item bug
+        - Cosmetic bug
+        - Incorrect tooltip
+        - Ability Draft
+        - Other
     validations:
       required: true
 
