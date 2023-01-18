@@ -4,22 +4,6 @@ description: An ability behaves in a way it probably shouldn't!
 labels: ["ability"]
 
 body:
-  - type: checkboxes
-  attributes:
-    label: Did you search for your bug in existing issues?
-    description: _Please search to see if an issue already exists for the bug you encountered._ **Do not post duplicates**
-    options:
-    - label: Yes, I have searched the existing issues and it looks like my post is not a duplicate. 
-      required: true
-
-  - type: checkboxes
-  attributes:
-    label: Have you read the FAQ in the README page?
-    description: _Make sure you read [**README**](https://github.com/ValveSoftware/Dota2-Gameplay#readme) page._
-    options:
-    - label: Yes, I did read the FAQ
-      required: true
-
   - type: input
     id: name
     attributes:
