@@ -22,18 +22,15 @@ body:
         required: true
   
   - type: dropdown
+    id: version
     attributes:
-      multiple: false
-      label: Choose bug category
+      label: Version
+      description: What version of our software are you running?
       options:
-        - Ability bug
-        - Item bug
-        - Cosmetic bug
-        - Incorrect tooltip
-        - Ability Draft
-        - Other
-      validations:
-        required: true
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+    validations:
+      required: true
 
   - type: input
     id: name
