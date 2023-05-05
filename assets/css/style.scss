@@ -1,7 +1,7 @@
 ---
 ---
 
-$large-breakpoint: 64em;
+$large-breakpoint: 90rem;
 @mixin large {
   @media screen and (min-width: #{$large-breakpoint}) {
     @content;
