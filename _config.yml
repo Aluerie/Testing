@@ -1,2 +1,2 @@
-theme: jekyll-theme-cayman
-color-scheme: auto-default-dark
+plugins:
+  - jekyll-seo-tag
