@@ -1,21 +1,9 @@
 ---
 ---
 
-$large-breakpoint: 90rem;
-@mixin large {
-  @media screen and (min-width: #{$large-breakpoint}) {
-    @content;
-  }
-}
-
 .main-content {
-
-  @include large {
-    max-width: 90rem;
-    padding: 2rem 6rem;
-    margin: 0 auto;
-    font-size: 1.1rem;
-  }
+  min-width: 90rem;
+  max-width:  90rem;
 }
 
 @import "{{ site.theme }}";
