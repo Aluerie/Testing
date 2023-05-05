@@ -1,6 +1,12 @@
 ---
 ---
 
+@mixin large {
+  @media screen and (min-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
+
 .main-content {
 
   @include large {
@@ -9,6 +15,6 @@
     margin: 0 auto;
     font-size: 1.1rem;
   }
-};
+}
 
 @import "{{ site.theme }}";
