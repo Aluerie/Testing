@@ -18,4 +18,4 @@ jobs:
       - name: CREATE PULL REQUEST
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: testpage
+          branch: testpage-promotion
