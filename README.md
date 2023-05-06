@@ -1,4 +1,4 @@
-# LET S START AGAIN 1 2 3
+# LET S START AGAIN 1 2 3 GG
 
 Fork of [ListEmoticons.ipynb](https://github.com/rossengeorgiev/dota2_notebooks/blob/master/List%20Emoticons.ipynb) by [rossengeorgiev](https://github.com/rossengeorgiev).
 
