@@ -21,6 +21,7 @@ jobs:
         with:
           base: main
           branch: major
+          delete-branch: true
       - name: ENABLE PR AUTOMERGE
         if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: peter-evans/enable-pull-request-automerge@v3
