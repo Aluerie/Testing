@@ -16,6 +16,13 @@ jobs:
           git fetch origin main:main
           git reset --hard main
       - name: CREATE PULL REQUEST
+        id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
           branch: testpage-promotion
+      - name: ENABLE PR AUTOMERGE
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
