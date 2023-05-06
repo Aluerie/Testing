@@ -7,6 +7,8 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git checkout gh-pages
-          git merge main
-          git push
+          
+          git checkout testpage
+          git rebase main
+          git push origin testpage
+          git checkout main
