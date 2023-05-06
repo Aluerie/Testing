@@ -1,4 +1,4 @@
-# List Emoticons for Dota 2 00-0-0- fffffffffffff ZYZYZYZ NEW ZZZ WILL IT WORK OG VERSUS EG XDXD
+# List Emoticons for Dota 2 00-0-0- fffffffffffff ZYZYZYZ NEW ZZZ WILL IT WORK OG VERSUS EG XDXD WOWOWOWOWOOWOWWOOWWOW
 
 Fork of [ListEmoticons.ipynb](https://github.com/rossengeorgiev/dota2_notebooks/blob/master/List%20Emoticons.ipynb) by [rossengeorgiev](https://github.com/rossengeorgiev).
 
