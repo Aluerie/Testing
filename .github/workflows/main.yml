@@ -14,4 +14,5 @@ jobs:
           
           git checkout -b testpage
           git rebase main
+          git pull
           git push origin testpage
