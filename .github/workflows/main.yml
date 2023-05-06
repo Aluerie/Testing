@@ -10,7 +10,7 @@ jobs:
       - name: Checkout BRANCH
         uses: actions/checkout@v3
         with:
-          ref: major
+          ref: new
       - name: FETCH MAIN 
         run: |
           git fetch origin main:main
@@ -20,7 +20,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           base: main
-          branch: major
+          branch: new
           delete-branch: true
       - name: ENABLE PR AUTOMERGE
         if: steps.cpr.outputs.pull-request-operation == 'created'
