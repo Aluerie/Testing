@@ -1,13 +1,21 @@
-on: push
+on:
+  push:
+    branches:
+      - 'main'
+      
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          
-          git checkout -b testpage
-          git rebase main
-          git push origin testpage
+      - name: Checkout BRANCH
+        uses: actions/checkout@v3
+        with:
+          ref: testpage
+      - name: FETCH MAIN 
+        run: |
+          git fetch origin main:main
+          git reset --hard main
+      - name: CREATE PULL REQUEST
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: testpage-promotion
