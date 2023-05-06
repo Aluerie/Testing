@@ -8,6 +8,6 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           
-          git checkout -b testpage origin/another-testpage
+          git checkout -b testpage origin/testpage
           git rebase main
           git push origin testpage
