@@ -1,9 +1,11 @@
-name: Auto approve
-
+name: Auto-merge Dependabot
 on: pull_request
 
 jobs:
-  auto-approve:
+  automerge:
     runs-on: ubuntu-latest
     steps:
       - uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: squash
