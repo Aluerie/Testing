@@ -4,11 +4,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: testpage
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           
+          git checkout -b testpage origin/another-testpage
           git rebase main
           git push origin testpage
