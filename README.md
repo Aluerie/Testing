@@ -21,7 +21,6 @@ Hello ${\color{red}VeryRed}$ wtf
 
 ${\textsf{\color{lightgreen}Green}}$
 
-<video src=https://github.com/user-attachments/assets/cf828942-40ec-4fcc-9a97-1c3909bf25a2>
 
 erm 
 
