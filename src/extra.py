@@ -16,8 +16,8 @@ log.setLevel(logging.INFO)
 COUNTER_LOOP_MAX = 10
 DISCORD_COLOR = 0x5865F2
 TWITCH_COLOR = 0x9146FF
-MADGE_EMOTE = "<:DankMadgeThreat:1125591898241892482>"
-MENTION_OWNER = "<@!312204139751014400>"
+MADGE_EMOTE = '<:DankMadgeThreat:1125591898241892482>'
+MENTION_OWNER = '<@!312204139751014400>'
 SPAM_CHANNEL_ID = 970823670702411810
 TEST_GUILD_ID = 759916212842659850
 
@@ -37,26 +37,22 @@ class LalaBot(commands.Bot):
             intents=intents,
             members=True,
             activity=discord.Streaming(
-                name='\N{BLACK HEART} type "/" in #jailed_bots haha',
-                url="https://www.twitch.tv/irene_adler__",
+                name='\N{BLACK HEART} type "/" in #jailed_bots',
+                url='https://www.twitch.tv/irene_adler__',
             ),
         )
         # very lazy;
 
         # for discord status loop
         self.counter_1: int = 0
-        self.is_notified_1: bool = False
+        self.is_notified_1: bool = True
 
         # for systemctl loop
         self.counter_2: int = 0
         self.is_notified_2: bool = True
 
-    @override
-    async def setup_hook(self) -> None:
-        self.watch_loop_1.start()
-
     async def on_ready(self) -> None:
-        log.info("Logged in as %s", self.user)
+        log.info('Logged in as %s', self.user)
 
     @discord.utils.cached_property
     def test_guild(self) -> discord.Guild:
@@ -79,14 +75,16 @@ class LalaBot(commands.Bot):
             self.counter_1 = 0
             self.is_notified_1 = False
 
-        elif member.status == discord.Status.offline and not self.is_notified_1:
+        elif (
+            member.status == discord.Status.offline and not self.is_notified_1
+        ):
             self.counter_1 += 1
             if self.counter_1 > COUNTER_LOOP_MAX:
                 await self.spam_channel.send(
-                    content=f"{MENTION_OWNER}, {MADGE_EMOTE}",
+                    content=f'{MENTION_OWNER}, {MADGE_EMOTE}',
                     embed=discord.Embed(
                         color=DISCORD_COLOR,
-                        title=f"{member.display_name} is now offline",
+                        title=f'{member.display_name} is now offline',
                     ),
                 )
                 self.is_notified_1 = True
@@ -99,7 +97,7 @@ class LalaBot(commands.Bot):
         https://stackoverflow.com/a/57208026/19217368
         """
         process = await asyncio.create_subprocess_shell(
-            "systemctl is-active --quiet service-name"
+            'systemctl is-active --quiet service-name'
         )
         result = await process.wait()
 
@@ -110,9 +108,9 @@ class LalaBot(commands.Bot):
             self.counter_3 += 2
             if self.counter_3 > COUNTER_LOOP_MAX:
                 await self.spam_channel.send(
-                    content=f"{MENTION_OWNER}, {MADGE_EMOTE}",
+                    content=f'{MENTION_OWNER}, {MADGE_EMOTE}',
                     embed=discord.Embed(
-                        color=TWITCH_COLOR, title="IreBot is now offline"
+                        color=TWITCH_COLOR, title='IreBot is now offline'
                     ),
                 )
                 self.is_notified_2 = True
@@ -123,26 +121,15 @@ class LalaBot(commands.Bot):
         await self.wait_until_ready()
 
     @override
-    async def on_message(self, message: discord.Message, /) -> None:
-        # it doesn't react when doing simple "@LalaBot" otherwise even with commands.when_mentioned
-        # it needs a command to follow like "@LalaBot hey"
-        mention_regex = re.compile(rf"<@!?{LALA_BOT_ID}>")
-
-        if mention_regex.fullmatch(message.content):
-            await message.channel.send(f"{MADGE_EMOTE} Use slash commands!")
-            return
-
-        await self.process_commands(message)
-
-    @override
     async def on_command_error(
         self, ctx: commands.Context[Self], error: commands.CommandError
     ) -> None:
         if isinstance(error, commands.CommandNotFound):
             # manual list, but whatever.
-            await ctx.send(f"{MADGE_EMOTE} Use slash commands!")
+            await ctx.send(f'{MADGE_EMOTE} Use slash commands!')
         elif isinstance(
-            error, (commands.BadLiteralArgument, commands.MissingRequiredArgument)
+            error,
+            (commands.BadLiteralArgument, commands.MissingRequiredArgument),
         ):
             await ctx.send(str(error))
 
@@ -153,16 +140,15 @@ bot = LalaBot()
 @bot.command()
 async def sync(ctx: commands.Context[LalaBot]) -> None:
     await ctx.bot.tree.sync()
-    await ctx.send(f"synced the tree {MADGE_EMOTE}")
+    await ctx.send(f'synced the tree {MADGE_EMOTE}')
 
 
 @bot.tree.command()
 async def systemctl(
     interaction: discord.Interaction[LalaBot],
-    request: Literal["restart", "stop", "start"],
-    service: Literal["alubot", "irenesbot", "lalabot"],
+    request: Literal['restart', 'stop', 'start'],
+    service: Literal['alubot', 'irenesbot', 'lalabot'],
 ) -> None:
-    """Perform a `sudo systemctl` shell command."""
     try:
         result = await asyncio.create_subprocess_shell(
             f"sudo systemctl {request} {service}"
@@ -179,6 +165,15 @@ def fou(x):
         8,
         999999999999999999,
     ]
+    await asyncio.create_subprocess_shell(
+            f'sudo systemctl {request} {service}'
+        )
+    except Exception:
+        log.exception(
+            'Exception happened during !systemctl command', stack_info=True
+        )
+        # it might not go off
+        await interaction.response.send_message('Something went wrong.')
     return
 
 
