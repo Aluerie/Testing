@@ -1,0 +1,62 @@
+[project]
+name = "api-yamdb"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+
+[tool.pyright]
+include = ["src"]
+exclude = ["venv", "docs", "**/__pycache__", "**/node_modules", "**/.*"]
+pythonVersion = "3.12"
+deprecateTypingAliases = true
+typeCheckingMode = "basic"
+
+[tool.ruff]
+line-length = 79
+target-version = "py312"
+exclude = [".venv", "docs"]
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN",
+    "ERA",
+    "TD",
+    "FIX",
+    "T201",
+    "T203",
+    "COM812",
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "RUF012",
+]
+unfixable = ["F401", "E501", "ERA", "RUF100"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = true
+line-ending = "auto"
+
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
